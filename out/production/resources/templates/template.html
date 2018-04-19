@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="src/main/resources/templates/style.css" />
+</head>
+<body>
+    <div class='header' th:include="header::header"></div>
+
+    <div th:include="letterhead::letterhead"></div>
+
+    <div>
+        <h1 th:text="${welcome}">Text Welcome</h1>
+    </div>
+
+    <div>
+        <h1>Product</h1>
+        <table>
+            <tr>
+                <td>Code</td>
+                <td>Name</td>
+                <td>Value</td>
+                <td>Count</td>
+            </tr>
+            <tr th:each="prod : ${products}">
+                <td th:text="${prod.id}"></td>
+                <td th:text="${prod.name}"></td>
+                <td th:text="${prod.value}"></td>
+                <td th:text="${prod.count}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class='footer' th:include="footer::footer"></div>
+</body>
+</html>
